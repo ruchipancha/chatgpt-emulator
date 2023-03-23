@@ -1,0 +1,68 @@
+html,body {
+    height: 100%;
+    background-color: white;
+}
+
+.min-height-100 {
+    min-height: 100%;
+}
+
+#chatwindow-chat {
+    border: 1px solid black;
+    height: 600px;
+}
+
+#chatwindow-btn button {
+    margin: 10px 10px 10px 0;
+    width: 100%
+}
+
+#chatwindow-row {
+    margin-top: 15px
+}
+
+#chatwindow-instructions, #instructions {
+    text-align: center;
+}
+
+#chatwindow-input {
+    border-top: 1px solid black;
+}
+
+#chatwindow-btn {
+    border-radius: 0;
+    font-size: 25px;
+}
+
+#chatwindow-chats {
+    height: 89.8%;
+    overflow-y: scroll;
+}
+
+.userConvoItem {
+    margin: 5px;
+    text-align: right;
+    border-radius: 4px;
+    width:80%;
+    background-color: darkgray;
+    padding: 5px;
+}
+
+.modelConvoItem {
+    margin: 5px;
+    text-align: left;
+    border-radius: 4px;
+    width: 80%;
+    background-color: darkseagreen;
+    padding: 5px;
+}
+
+textarea {
+    resize: none;
+    border: 0 !important;
+    background-color: #E5E4E2 !important;
+}
+
+textarea:focus {
+    outline:none;
+}
