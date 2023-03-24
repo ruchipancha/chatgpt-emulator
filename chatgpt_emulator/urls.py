@@ -23,7 +23,8 @@ from app_interface import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.HomePageView, name="home"),
-    path("chat",views.ChatWindowView, name="chatwindow")
+    path("chat",views.ChatWindowView, name="chatwindow"),
+    path("complete",views.CompletionView, name="complete")
 ]
 
 urlpatterns += staticfiles_urlpatterns()

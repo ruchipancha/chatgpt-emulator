@@ -12,6 +12,8 @@ openai.api_key = settings.CHATGPT_KEY
 model_engine = "gpt-3.5-turbo"
 chat_history = []
 
+userid = ''
+
 def HomePageView(request):
     template_name = "index.html"
     form = IDInputForm(request.POST)
@@ -20,6 +22,7 @@ def HomePageView(request):
 
         exists = checkIfIDExists(idInput)
         if exists :
+            userid = idInput
             return redirect("chatwindow")
         #add else for if id does not exist return form with validation
     else:
@@ -55,7 +58,19 @@ def OpenAIChatResponse(user_response):
     chat_history.append({"role": "assistant", "content": model_response})
     return model_response
 
-
+def CompletionView(request):
+    template_name = "completion.html"
+    if request.method == 'POST':
+        #save to file
+        filename = userid + "Results.txt"
+        #chat_history = [{'role':'user','content':'123'},{'role':'assistant','content':'456'}]
+        with open(filename, 'w') as f:
+            for chat in chat_history:
+                f.write(chat['role']+" : "+chat['content'])
+                f.write('\n')
+        
+    return render(request, template_name)
+    
 
 # content = input("User: ")
 #     messages.append({"role": "user", "content": content})

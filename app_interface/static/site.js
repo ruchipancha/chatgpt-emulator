@@ -21,7 +21,7 @@ function chatSend() {
 
     textInputElem.value = ""
     //after passing to chatgpt, return result from view and add to left of window
-
+    document.getElementById("submit-btn").disabled = false
     $.ajax({
         url: 'chat',
         type: 'POST',
@@ -39,7 +39,27 @@ function chatSend() {
         }
         
     })
+
+
     
+}
+
+function taskComplete() {
+    $.ajax({
+        url: 'complete',
+        type: 'POST',
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),  // don't forget to include the 'getCookie' function
+        },
+        success: (data) => {
+            location.href = '/complete';
+        },
+          error: (error) => {
+            console.log(error);
+        }
+        
+    });
 }
 
 function createConvoItem(text,type) {
