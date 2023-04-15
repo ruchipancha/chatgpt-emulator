@@ -3,6 +3,17 @@ html,body {
     background-color: white;
 }
 
+.container {
+    margin: 0 30px;
+}
+
+.preNode {
+    white-space: break-spaces !important;
+    font: inherit !important;
+    margin-bottom: 0 !important;
+
+}
+
 .min-height-100 {
     min-height: 100%;
 }
@@ -39,6 +50,13 @@ html,body {
     overflow-y: scroll;
 }
 
+#chatwindow-header {
+    background-color: #939799;
+    padding: 7px;
+    width: 80%;
+    margin: 5px
+}
+
 .userConvoItem {
     margin: 5px;
     text-align: right;
@@ -65,4 +83,12 @@ textarea {
 
 textarea:focus {
     outline:none;
+}
+
+#wordcount-div {
+    font-size: 14px;
+}
+
+#instructions, #instructions-2 {
+    margin-top: 30px;
 }

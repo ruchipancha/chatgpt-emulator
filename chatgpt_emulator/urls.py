@@ -25,6 +25,7 @@ urlpatterns = [
     path("", views.HomePageView, name="home"),
     path("chat",views.ChatWindowView, name="chatwindow"),
     path("complete",views.CompletionView, name="complete")
+    #path("complete",views.CompletionView, name="complete")
 ]
 
 urlpatterns += staticfiles_urlpatterns()

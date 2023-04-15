@@ -1,2 +1,0 @@
-user : who is neil armstrong?
-assistant : Neil Armstrong was an American astronaut and the first person to walk on the moon. He accomplished this feat during the Apollo 11 mission in 1969. Armstrong also served as a naval aviator, test pilot, and university professor. He passed away in 2012 at the age of 82.
