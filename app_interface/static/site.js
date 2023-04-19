@@ -4,8 +4,16 @@ function nextPage1() {
     const instructions = document.getElementById("instructions");
     instructions.remove()
 
-    const instructions2 = document.getElementById("instructions-2")
-    instructions2.style.display = "block"
+    const chatwindow = document.getElementById("chatwindow-row");
+    const storysubmit = document.getElementById("storysubmitwindow")
+    chatwindow.style.display = "flex"
+    storysubmit.style.display = "block"
+    $("#chatwindow-instructions").css("display","block")
+
+    const initial_story = 'Amy sat in the waiting room, tapping her foot anxiously. This was her fifth chance to get it right, and she couldn\'t afford to mess it up again. She had failed so many times before, but she had to keep trying. \nThe door finally opened and a stern-looking woman beckoned her inside. Amy followed her into a small room and sat down at the table. The woman began to ask her questions, and Amy did her best to answer them truthfully. She didn\'t want to give the wrong impression or say something that would make her lose this chance.\n As the interview went on, Amy\'s nerves began to get the best of her. She stumbled over her words and lost her train of thought. The woman looked unimpressed and made a note on her clipboard.\n After what felt like an eternity, the interview was over. Amy left the room feeling defeated. She had tried so hard, but it didn\'t seem to be enough. As she walked out of the building, she saw a man sitting on the sidewalk with a cardboard sign that read, "Anything helps."\n Amy dug into her pocket and pulled out a few dollars. As she handed them to the man, she noticed something strange. He had a tattoo on his wrist that looked familiar. It was the same one she had.\n Amy\'s heart skipped a beat. She turned to the man and asked, "How did you get that tattoo?" \n The man looked up at her and smiled. "I got it when I was trying to turn my life around. It\'s a symbol of hope." '
+    createConvoItem(initial_story,'model',false);  
+    //chatwindowinstructions.style.display = "block"
+    startTime = new Date()
 }
 
 
@@ -23,13 +31,57 @@ function nextPage2(){
     storysubmit.style.display = "block"
     $("#chatwindow-instructions").css("display","block")
     //chatwindowinstructions.style.display = "block"
-
+    startTime = new Date()
 
     //add story to chatgpt?
-    createConvoItem(initial_story,'model',false);
+    createConvoItem(initial_story,'model',false);  
+}
 
-    
+function nextPage3() {
+    const instructions = document.getElementById("instructions");
+    instructions.remove()
 
+    const chatwindowtry = document.getElementById("trywindow-row")
+    chatwindowtry.style.display = "block"
+}
+
+function nextPage4() {
+    location.href="/chat"
+}
+
+function chatSendTry() {
+    const textInputElem = document.getElementById("chatwindow-chatinput");
+    const textInput = textInputElem.value;
+
+    if(textInput.length <= 0) {
+        return
+    }
+    //const chatWindow = document.getElementById("chatwindow-chats")
+
+    //const convoDiv = createConvoItem(textInput);
+    createConvoItem(textInput);
+    //chatWindow.append(convoDiv)
+
+    textInputElem.value = ""
+    //after passing to chatgpt, return result from view and add to left of window
+    $.ajax({
+        url: 'trygpt',
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({user_response: textInput,}),
+        headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            "X-CSRFToken": getCookie("csrftoken"),  // don't forget to include the 'getCookie' function
+        },
+        success: (data) => {
+            createConvoItem(data['model_response'],'model');
+        },
+          error: (error) => {
+            console.log(error);
+        },
+
+    })
+    console.log("waiting")
 }
 
 function chatSend() {
@@ -65,20 +117,18 @@ function chatSend() {
 
     })
     console.log("waiting")
-
-
-
 }
 
 function taskComplete() {
     document.getElementById("submit-btn").disabled = false
     final_story = document.getElementById("storysubmitwindow-textarea").value
-
+    endTime = new Date()
+    var totalTime = (endTime - startTime)/1000
     $.ajax({
         url: 'complete',
         type: 'POST',
         dataType: 'json',
-        data: JSON.stringify({user_story: final_story}),
+        data: JSON.stringify({user_story: final_story, time: totalTime}),
         headers: {
             "X-Requested-With": "XMLHttpRequest",
             "X-CSRFToken": getCookie("csrftoken"),  // don't forget to include the 'getCookie' function

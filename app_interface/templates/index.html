@@ -12,17 +12,5 @@
     </head>
     <body>
         
-        <div class="container h-100 d-flex justify-content-center">
-            <div class="my-auto">
-              <h3 class="">Please enter your SONA ID number</h3>
-              <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="mb-3">
-                    {{form.id_field}}
-                </div>
-                <button type="submit" class="btn btn-primary" >Submit</button>
-            </form>
-            </div>
-         </div>
     </body>
 </html>

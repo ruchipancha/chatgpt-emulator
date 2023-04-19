@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ChatGPT Emulator</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="Stylesheet" type="text/css" href="{% static 'site.css' %}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+        <script src="{% static 'site.js' %}"></script>
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div class="row" id="trywindow-instructions">
+                <div id="instructions">
+                    <h3>Instructions</h3>
+                    <p class="instruction-p">Welcome! For this part of the study, you will write a short story with the help of ChatGPT.</p>
+                    <p class="instruction-p">ChatGPT is an artificial intelligence (AI) computer program. It can understand what people write, and then write back in a way that seems like a real person. This helps it do things like chat, write text, and complete sentences.</p>
+                    <p class="instruction-p">If you have never used ChatGPT before, on the next page, you will have the opportunity to interact with it before beginning the study.</p>
+                    <p class="instruction-p">Some instructions and ideas will be provided to help you understand how to use ChatGPT. </p>                  
+                    <button class="btn btn-primary" onclick="nextPage3()">Continue</button>
+                </div>
+            </div>
+            <div class="row" id="trywindow-row" style = "display:none">
+                {% comment %} <div id="trywindow-instructions" >
+                    <h6>Best Practices for Interacting with ChatGPT</h6>
+                    <p class="instruction-p"><strong>1. Be specific: </strong> "Suggest three graduation gift ideas under $50 for a friend who studied computer science."</p>
+                    <p class="instruction-p"><strong>2. Use open-ended questions: </strong>"What are some unique and thoughtful graduation gifts that would leave a lasting impression?" </p>
+                    <p class="instruction-p"><strong>3. Brainstorm ideas: </strong>"List 10 potential graduation gifts for a friend who loves art, and I'll narrow down my favorites." </p>
+                    <p class="instruction-p"><strong>4. Request iterations: </strong>"I liked the idea of a custom-made artwork. Could you provide more options or variations of this gift idea?"</p>
+                    <button class="btn btn-primary" style="margin-bottom: 15px" onclick="nextPage4()">Continue to the study</button>
+                </div> {% endcomment %}
+                <div class="row">
+                    <div id="chatwindow-instructions" >
+                        <h6>Practice chatting with ChatGPT</h6>
+                            <p class="instruction-p">Before you start the study, let's review some best practices and try chatting with ChatGPT. </p>
+                            <p class="instruction-p">Below are some best practices for interacting with ChatGPT, with some "prompts" you can enter into the model to get ideas. <strong> In this example, we'll ask ChatGPT for ideas for a graduation gift for a friend. </strong>  </p>
+                            <p class="instruction-p">Try entering some of these prompts in the textbox, and asking follow up questions. After you get the hang of it, you can move on to continue the study. </p>
+                            <p class="instruction-p"><strong>1. Be specific: </strong> "Suggest three graduation gift ideas under $50 for a friend who studied computer science."</p>
+                            <p class="instruction-p"><strong>2. Use open-ended questions: </strong>"What are some unique and thoughtful graduation gifts that would leave a lasting impression?" </p>
+                            <p class="instruction-p"><strong>3. Brainstorm ideas: </strong>"List 10 potential graduation gifts for a friend who loves art, and I'll narrow down my favorites." </p>
+                            <p class="instruction-p"><strong>4. Request iterations: </strong>"I liked the idea of a custom-made artwork. Could you provide more options or variations of this gift idea?"</p>
+                            <button class="btn btn-primary" style="margin-bottom: 15px" onclick="nextPage4()">Continue to the study</button>
+                    </div>
+                    <div class="col-sm-2"></div>
+
+                    <div class="col-sm-8 my-auto justify-content-center">
+                        {% comment %} <div id="trywindow" >
+                            <div id="trywindow-chat">
+                                <div id="trywindow-chats">
+                                    
+                                </div>
+                                <div class="input-group mb-3" id="trywindow-input">
+                                    <textarea rows="2" class="form-control" id="trywindow-chatinput" placeholder="Enter your question for ChatGPT"></textarea>
+                                    <div class="input-group-append">
+                                    <button class="btn btn-success h-100" id="trywindow-btn" type="button" onclick="chatSendTry()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div> {% endcomment %}
+                        <div id="chatwindow" >
+                            {% comment %} <div id="chatwindow-instructions">
+                                <h5>Write a short story with the help of ChatGPT.</h6>
+                                    <p>On the next page, you will see a short story written by ChatGPT. Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p>
+                                    <p>Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
+                                    <p>Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>
+                            </div> {% endcomment %}
+
+                            <div id="chatwindow-chat">
+                                <div id="chatwindow-chats">
+                                    
+                                </div>
+                                <div class="input-group mb-3" id="chatwindow-input">
+                                    <textarea rows="2" class="form-control" id="chatwindow-chatinput" placeholder="Enter your question for ChatGPT"></textarea>
+                                    <div class="input-group-append">
+                                    <button class="btn btn-success h-100" id="chatwindow-btn" type="button" onclick="chatSendTry()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2">
+                        {% comment %} <div id="trywindow-instructions" >
+                            <h6>Best Practices for Interacting with ChatGPT</h6>
+                            <p class="instruction-p"><strong>1. Be specific: </strong> "Suggest three graduation gift ideas under $50 for a friend who studied computer science."</p>
+                            <p class="instruction-p"><strong>2. Use open-ended questions: </strong>"What are some unique and thoughtful graduation gifts that would leave a lasting impression?" </p>
+                            <p class="instruction-p"><strong>3. Brainstorm ideas: </strong>"List 10 potential graduation gifts for a friend who loves art, and I'll narrow down my favorites." </p>
+                            <p class="instruction-p"><strong>4. Request iterations: </strong>"I liked the idea of a custom-made artwork. Could you provide more options or variations of this gift idea?"</p>
+                            <button class="btn btn-primary" style="margin-bottom: 15px" onclick="nextPage4()">Continue to the study</button>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from app_interface import views
@@ -22,11 +22,16 @@ from app_interface import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", views.HomePageView, name="home"),
+    #re_path(r"^chat/(?P<id>id=\d+)",views.ChatWindowView, name="chatwindow"),
+
+    #re_path(r"^index/(?P<id>\?id=\d+)", views.HomePageView, name="home"),
+    re_path(r'^index/$', views.HomePageView, name="home"),
     path("chat",views.ChatWindowView, name="chatwindow"),
+    path("trygpt",views.TryGPTView, name="trygpt"),
     path("complete",views.CompletionView, name="complete")
     #path("complete",views.CompletionView, name="complete")
 ]
+
 
 urlpatterns += staticfiles_urlpatterns()
 

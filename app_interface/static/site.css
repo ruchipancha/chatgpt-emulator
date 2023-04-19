@@ -18,39 +18,49 @@ html,body {
     min-height: 100%;
 }
 
-#chatwindow-chat {
+#chatwindow-chat  {
     border: 1px solid black;
     height: 600px;
+    margin-bottom: 15px;
 }
 
-#chatwindow-btn button {
+#trywindow-chats {
+    border: 1px solid black;
+    height: 500px;
+}
+
+#chatwindow-btn button, #trywindow-btn button {
     margin: 10px 10px 10px 0;
     width: 100%
 }
 
-#chatwindow-row {
+#chatwindow-row, #trywindow-row {
     margin-top: 15px
 }
 
-#chatwindow-instructions, #instructions {
+#chatwindow-instructions, #instructions, #trywindow-instructions {
     text-align: center;
 }
 
-#chatwindow-input {
+.instruction-p {
+    font-size: 15px;
+}
+
+#chatwindow-input, #trywindow-input {
     border-top: 1px solid black;
 }
 
-#chatwindow-btn {
+#chatwindow-btn, #trywindow-btn {
     border-radius: 0;
     font-size: 25px;
 }
 
-#chatwindow-chats {
+#chatwindow-chats, #trywindow-btn {
     height: 89.8%;
     overflow-y: scroll;
 }
 
-#chatwindow-header {
+#chatwindow-header, #trywindow-header {
     background-color: #939799;
     padding: 7px;
     width: 80%;

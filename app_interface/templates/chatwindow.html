@@ -18,28 +18,28 @@
             <div class="row" id="chatwindow-instructions">
                 <div id="instructions">
                     <h3>Instructions</h3>
-                    <p>Welcome! For this part of the study, you will write a short story with the help of ChatGPT.</p>
-                    <p>ChatGPT is an artificial intelligence (AI) computer program. It can understand what people write, and then write back in a way that seems like a real person. This helps it do things like chat, write text, and complete sentences.</p>
-                    <p>On the next page, you will see a short story written by ChatGPT. Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p>
-                    <p>Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
-                    <p>Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>                    
+                    <p class="instruction-p">Welcome! For this part of the study, you will write a short story with the help of ChatGPT.</p>
+                    {% comment %} <p>ChatGPT is an artificial intelligence (AI) computer program. It can understand what people write, and then write back in a way that seems like a real person. This helps it do things like chat, write text, and complete sentences.</p>
+                    <p>On the next page, you will see a short story written by ChatGPT. Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p> {% endcomment %}
+                    <p class="instruction-p">Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
+                    <p class="instruction-p">Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>                    
                     <button class="btn btn-primary" onclick="nextPage1()">Continue</button>
                 </div>
-                <div id="instructions-2" style="display:none">
+                {% comment %} <div id="instructions-2" style="display:none">
                     <h4>Best Practices for Interacting with ChatGPT</h4>
                     <p><strong>1. Be specific: </strong> State requirements like word count, tone, and themes for best responses.</p>
                     <p><strong>2. Use open-ended questions: </strong>Encourage creativity by asking open-ended questions. </p>
                     <p><strong>3. Brainstorm ideas: </strong>Use ChatGPT for idea generation, refining, and editing. </p>
                     <p><strong>4. Request iterations: </strong>Ask for alternatives or revisions if unsatisfied with the initial response.</p>
                     <button class="btn btn-primary" onclick="nextPage2()">Next</button>
-                </div>
+                </div> {% endcomment %}
             </div>
             <div class="row" id="chatwindow-row" style = "display:none">
                 <div id="chatwindow-instructions" >
-                    <h5>Write a short story with the help of ChatGPT.</h6>
-                        <p>On the next page, you will see a short story written by ChatGPT. Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p>
-                        <p>Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
-                        <p>Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>
+                    <h5>Write a short story titled "Fifth Chance" with the help of ChatGPT.</h6>
+                        <p class="instruction-p">Collaborate with ChatGPT to the story below by making specific requests in the text box.</p>
+                        <p class="instruction-p">Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
+                        <p class="instruction-p">Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>
                 </div>
                 <div class="col-sm-1"></div>
 
@@ -49,7 +49,7 @@
                     <div id="chatwindow" >
                         {% comment %} <div id="chatwindow-instructions">
                             <h5>Write a short story with the help of ChatGPT.</h6>
-                                <p>On the next page, you will see a short story written by ChatGPT. Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p>
+                                <p>Collaborate with ChatGPT to improve your story by making specific requests in the text box.</p>
                                 <p>Aim to work on the story for at least 10 minutes, make it around 300 words, and be as creative as possible. </p>
                                 <p>Once you're satisfied with your story, paste it in the submission box and click "Submit."</p>
                         </div> {% endcomment %}
